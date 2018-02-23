@@ -1,0 +1,73 @@
+body{
+    background: rgb(189, 95, 1);
+    color: #FFFFFF;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+header {
+    display:block;
+    font-size: 2em;
+    margin: 0px auto ; 
+    width: 50%;
+    text-align: center;
+}
+#secMenu{
+    margin: 0 auto ; 
+    width: 50%;    
+    text-align: center;
+}
+
+#secPhrase{
+    margin: 0 auto ; 
+    width: 100%;    
+    /*text-align: center;*/
+}
+
+#secUserInput{
+    margin: 0 auto ; 
+    width: 50%;    
+    text-align: center;
+}
+
+#txtGuess{
+    margin-top: 1em;
+    max-width: 1em;
+    font-size: 2em;
+}
+
+button{
+    background: rgb(0, 26, 255);
+    color: yellow;
+    font-size: 1.5em;
+    width: 49%;
+}
+
+footer{
+    position:fixed;
+    bottom: 0;
+    background: black;
+    width: 100%;
+    margin :0;
+}
+
+.box{
+   
+    font-size:2em;
+    min-width: 1em;
+    padding: 0.1em;    
+    display:inline-block;
+    text-align: center;
+}
+
+.unknown{
+    border:solid 1px white;      
+    margin: 0.1em;
+    background: rgb(0, 26, 255);
+}
+
+.found{
+    border:solid 1px white;      
+    margin: 0.1em;
+    background: yellow;
+    color:black;
+}
