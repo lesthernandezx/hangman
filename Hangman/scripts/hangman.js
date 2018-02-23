@@ -1,19 +1,23 @@
 var phrases = [
-    "THE HTML ROCKS",
-    "WHAT'S UP DOG"
+    "THE CAR",
+    "SECOND PHRASE TEST"
 ];
 
 var phrase="";
+var isValidGuess = false;
 var splitPhrase = [];
-var failCount=0;
+var splitPhraseNoSpace = [];
+var failsCount=0;
+var matchCount=0;
 
 function getRandomPhrase(){
-    index = Math.round( Math.random(phrases.length));  
+    index = Math.round( Math.random(phrases.length - 1));  
     phrase = phrases[index];  
+    splitPhrase = phrase.split('');   
+    splitPhraseNoSpace = phrase.replace(/\s/g, '').split('');
 }
 
-function buildBoxes(){
-    splitPhrase = phrase.split('');
+function buildBoxes(){     
     var secPhrase =  document.getElementById('secPhrase');
     var i=0;
     splitPhrase.forEach(element => {
@@ -44,7 +48,12 @@ function getGuess(){
 
 function tryGuess(){
     var guess = getGuess();
-    lookForMatches(guess);
+    if (guess!= ''){
+        lookForMatches(guess);
+        printFailsCount();
+    }           
+    checkWin();
+    checkLose(); 
 }
 
 function lookForMatches(guess){
@@ -56,28 +65,50 @@ function lookForMatches(guess){
             box.innerText = guess;
             box.setAttribute("class","box found");
             isValidGuess = true;
+            matchCount++;
         }        
         i++;
     });
+}
 
-    var secFails = document.getElementById('secFails');
-    if (!isValidGuess ){
-        failCount++;        
+function printFailsCount(){
+    if (!isValidGuess){
+        failsCount++;
+        var secFails = document.getElementById('secFails');                
         var spnFails = document.createElement('span');
         spnFails.setAttribute
         spnFails.innerText = 'X ';
         secFails.appendChild(spnFails);
-    }
-    if (failCount==5){
-        alert('Game Over');
-        /*txtGuess.setAttribute('disabled','');
-        var hResult = document.createElement('h2');
-        hResult.innerHTML = 'Game Over';*/
+        if (failsCount == 1) {secFails.style.display="inline";}  
+    }      
+}
+
+function checkLose(){
+    if(failsCount==5){
+        txtGuess.setAttribute('disabled','');
+        var dlogGameOver = document.getElementById('dlogGameOver'); 
+        dlogGameOver.showModal();        
     }
 }
 
-window.onload = function(){
-    getRandomPhrase();
-    
+function checkWin(){
+    if(matchCount==splitPhraseNoSpace.length){
+        var dlogWin = document.getElementById('dlogWin'); 
+        dlogWin.showModal();           
+    }
+}
+
+function startNewGame(){
+    resetCounters();
+    getRandomPhrase();    
     buildBoxes();
+}
+
+window.onload = function(){
+    startNewGame();
 };
+
+function resetCounters(){
+    matchCount=0;
+    failsCount=0;
+}

@@ -14,17 +14,31 @@
         <h1>Guess the phrase</h1>
     </header>
 
-    <section id="secPhrase">
-        
-        
-        
+    <section id="secPhrase">    
             
     </section>
     <section id="secUserInput">
-        <input type="text" name="txtGuess" id="txtGuess" maxlength="1" onchange="tryGuess()" onkeyup = "this.onchange();" onclick="this.value=''">
+        <input type="text" name="txtGuess" id="txtGuess" maxlength="1" autofocus onchange="tryGuess()" onkeyup = "this.onchange();" onclick="this.value=''">
 
     </section>
-    <section id="secFails">
+
+    
+    <section id="secFails">  
+        <h2>Fails Count</h2>      
+    </section>
+
+    <section id="secResult">
+            <dialog id="dlogWin">  
+                <h3>Congratulations, You Won!</h3>  
+                <p>Try another phrase!</p>  
+                <button onclick="location.reload()">New Game</button>  
+            </dialog>
+
+            <dialog id="dlogGameOver">  
+                <h3>Game Over, You Lost!</h3>  
+                <p>Better luck next time!</p>  
+                <button onclick="location.reload()">New Game</button>  
+            </dialog>
     </section>
 </body>
 </html>

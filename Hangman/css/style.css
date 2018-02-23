@@ -23,6 +23,10 @@ header {
     /*text-align: center;*/
 }
 
+#secFails{
+    display:none;
+}
+
 #secUserInput{
     margin: 0 auto ; 
     width: 50%;    
