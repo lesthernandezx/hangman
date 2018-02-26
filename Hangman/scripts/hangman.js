@@ -1,12 +1,15 @@
 var phrases = [
-    "THE CAR",
-    "SECOND PHRASE TEST"
+    "SAN JACINTO",
+    "SAN JUAN DEL SUR",
+    "CIUDAD SANDINO",
+    "CIUDAD EL DORAL OMG"
 ];
 
 var phrase="";
 var isValidGuess = false;
 var splitPhrase = [];
 var splitPhraseNoSpace = [];
+var usedValidGuesses = [];
 var failsCount=0;
 var matchCount=0;
 
@@ -41,19 +44,27 @@ function getGuess(){
     var txtGuess = document.getElementById('txtGuess');
     var guess = txtGuess.value.toUpperCase();
     txtGuess.value="";
-    txtGuess.focus();
+    txtGuess.focus();    
     /*TODO regular expression validation */
     return guess;
 }
 
 function tryGuess(){
     var guess = getGuess();
+    usedValidGuesses.forEach(element => {
+        if(element==guess){
+            var dlogInvalidGuess = document.getElementById('dlogInvalidGuess'); 
+            dlogInvalidGuess.showModal();   
+            return;
+        }
+    });
+
     if (guess!= ''){
         lookForMatches(guess);
         printFailsCount();
     }           
     checkWin();
-    checkLose(); 
+    checkLose();   
 }
 
 function lookForMatches(guess){
@@ -69,6 +80,9 @@ function lookForMatches(guess){
         }        
         i++;
     });
+    if(isValidGuess){
+        usedValidGuesses.push(guess);
+    }
 }
 
 function printFailsCount(){
@@ -109,6 +123,12 @@ window.onload = function(){
 };
 
 function resetCounters(){
+    usedValidChars = ''
     matchCount=0;
     failsCount=0;
+}
+
+function closeDialog(){
+    var dlog = document.getElementById('dlogInvalidGuess');
+    dlog.close();
 }

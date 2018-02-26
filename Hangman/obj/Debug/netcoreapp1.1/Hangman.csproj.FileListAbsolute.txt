@@ -6,3 +6,11 @@ C:\Users\PC\Documents\Visual Studio Code\Projects\Hangman\bin\Debug\netcoreapp1.
 C:\Users\PC\Documents\Visual Studio Code\Projects\Hangman\obj\Debug\netcoreapp1.1\Hangman.AssemblyInfo.cs
 C:\Users\PC\Documents\Visual Studio Code\Projects\Hangman\obj\Debug\netcoreapp1.1\Hangman.dll
 C:\Users\PC\Documents\Visual Studio Code\Projects\Hangman\obj\Debug\netcoreapp1.1\Hangman.pdb
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\bin\Debug\netcoreapp1.1\Hangman.deps.json
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\bin\Debug\netcoreapp1.1\Hangman.runtimeconfig.json
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\bin\Debug\netcoreapp1.1\Hangman.runtimeconfig.dev.json
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\bin\Debug\netcoreapp1.1\Hangman.dll
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\bin\Debug\netcoreapp1.1\Hangman.pdb
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\obj\Debug\netcoreapp1.1\Hangman.AssemblyInfo.cs
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\obj\Debug\netcoreapp1.1\Hangman.dll
+C:\Users\PC\Desktop\hangman_Ooqia\hangman\Hangman\obj\Debug\netcoreapp1.1\Hangman.pdb
