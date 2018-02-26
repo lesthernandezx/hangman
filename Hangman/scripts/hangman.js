@@ -100,26 +100,50 @@ function printFailsCount(){
 function checkLose(){
     if(failsCount==5){
         txtGuess.setAttribute('disabled','');
+        localStorage.setItem('splitPhrase',splitPhrase);
+        localStorage.setItem('splitPhraseNoSpace',splitPhraseNoSpace);
+        localStorage.setItem('usedValidGuesses',usedValidGuesses);
+        localStorage.setItem('failsCount',0);
+        localStorage.setItem('matchCount',matchCount);
         var dlogGameOver = document.getElementById('dlogGameOver'); 
         dlogGameOver.showModal();        
     }
 }
 
 function checkWin(){
-    if(matchCount==splitPhraseNoSpace.length){
+    if(matchCount==splitPhraseNoSpace.length){        
         var dlogWin = document.getElementById('dlogWin'); 
         dlogWin.showModal();           
     }
 }
 
 function startNewGame(){
+    localStorage.clear();
     resetCounters();
     getRandomPhrase();    
     buildBoxes();
 }
 
+function getPreviousGameState(){
+    splitPhrase = localStorage.getItem('splitPhrase');
+    splitPhraseNoSpace = localStorage.getItem('splitPhraseNoSpace');
+    usedValidGuesses = localStorage.getItem('usedValidGuesses');
+    failsCount = localStorage.getItem('failsCount');
+    matchCount = localStorage.getItem('matchCount');
+}
+
+function resumeGame(){
+    getPreviousGameState();
+    buildBoxes();
+}
+
 window.onload = function(){
-    startNewGame();
+    if (localStorage.getItem('isResumeGame') == 'true'){
+        resumeGame();
+    }else{
+        startNewGame();
+    }
+    
 };
 
 function resetCounters(){
@@ -132,3 +156,5 @@ function closeDialog(){
     var dlog = document.getElementById('dlogInvalidGuess');
     dlog.close();
 }
+
+

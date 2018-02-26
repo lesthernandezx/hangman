@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="scripts/hangman.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Guess the phrase</h1>
+    </header>
+
+    <section id="secPhrase">    
+            
+    </section>
+    <section id="secUserInput">
+        <input type="text" name="txtGuess" id="txtGuess" maxlength="1" autofocus onchange="tryGuess()" onkeyup = "this.onchange();" onclick="this.value=''">
+
+    </section>
+
+    
+    <section id="secFails">  
+        <h2>Fails Count</h2>      
+    </section>
+
+    <section id="secResult">
+            <dialog id="dlogWin">  
+                <h3>Congratulations, You Won!</h3>  
+                <p>Try another phrase!</p>  
+                <button onclick="location.reload()">New Game</button>  
+            </dialog>
+
+            <dialog id="dlogGameOver">  
+                <h3>Game Over, You Lost!</h3>  
+                <p>Better luck next time!</p>  
+                <button onclick="location.reload()">New Game</button>  
+            </dialog>
+
+            <dialog id="dlogInvalidGuess">  
+                <h3>You already used that letter!</h3>  
+                <p>Try another one!</p>  
+                <button onclick="closeDialog()">Ok</button>  
+            </dialog>
+    </section>
+</body>
+</html>
